@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #111111;
+    color: #F1F5F9;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1A1A2E;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3D3D60;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5D5D80;
+  }
+}
+
+@layer utilities {
+  .font-tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  .text-financial {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .table-row-hover {
+    @apply transition-colors duration-100 hover:bg-bg-elevated cursor-default;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-text-secondary transition-all duration-150 hover:text-text-primary hover:bg-bg-elevated;
+  }
+
+  .sidebar-item-active {
+    @apply text-text-primary bg-accent-purple-dim text-accent-purple-light;
+  }
+
+  .card {
+    @apply bg-bg-surface border border-border-default rounded-xl p-5;
+  }
+
+  .btn-primary {
+    @apply bg-accent-purple hover:bg-accent-purple-light text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-bg-elevated hover:bg-border-default text-text-primary px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2 border border-border-default;
+  }
+
+  .btn-danger {
+    @apply bg-accent-red-dim hover:bg-accent-red text-accent-red-light hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2 border border-accent-red;
+  }
+
+  .input-field {
+    @apply bg-bg-elevated border border-border-default rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-purple transition-colors;
+  }
+}
+
+/* Recharts dark theme overrides */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #2D2D4A !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #1E1E38 !important;
+  border: 1px solid #3D3D60 !important;
+  border-radius: 8px !important;
+  color: #F1F5F9 !important;
+}
+
+.recharts-text {
+  fill: #94A3B8 !important;
+}
+
+/* Shimmer loading animation */
+.shimmer {
+  background: linear-gradient(90deg, #1A1A2E 25%, #2D2D4A 50%, #1A1A2E 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
